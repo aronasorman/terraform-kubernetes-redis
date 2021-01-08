@@ -85,12 +85,12 @@ variable metrics_image_pull_policy {
 }
 
 variable metrics_image_pull_secrets {
-  type    = "list"
+  type    = list
   default = []
 }
 
 variable metrics_resource_requests {
-  type = "map"
+  type = map
 
   description = <<EOF
 Redis metrics resource requests
@@ -105,7 +105,7 @@ EOF
 }
 
 variable metrics_resource_limits {
-  type = "map"
+  type = map
 
   description = <<EOF
 Redis metrics resource limits
@@ -120,7 +120,7 @@ EOF
 }
 
 variable metrics_pod_annotations {
-  type    = "map"
+  type    = map
   default = {}
 }
 
@@ -132,7 +132,7 @@ variable kubernetes_namespace {
 }
 
 variable kubernetes_node_selector {
-  type    = "map"
+  type    = map
   default = {}
 }
 
@@ -144,7 +144,7 @@ variable master_port {
 }
 
 variable master_args {
-  type = "list"
+  type = list
 
   description = <<EOF
 Redis command arguments.
@@ -160,7 +160,7 @@ EOF
 }
 
 variable master_extra_flags {
-  type = "list"
+  type = list
 
   description = <<EOF
  Redis additional command line flags
@@ -176,7 +176,7 @@ EOF
 }
 
 variable master_disable_commands {
-  type = "list"
+  type = list
 
   description = <<EOF
 Comma-separated list of Redis commands to disable
@@ -191,7 +191,7 @@ EOF
 }
 
 variable master_pod_labels {
-  type = "map"
+  type = map
 
   description = <<EOF
 Redis Master additional pod labels
@@ -202,7 +202,7 @@ EOF
 }
 
 variable master_resource_requests {
-  type = "map"
+  type = map
 
   description = <<EOF
 Redis Master resource requests
@@ -217,7 +217,7 @@ EOF
 }
 
 variable master_resource_limits {
-  type = "map"
+  type = map
 
   description = <<EOF
 Redis Master resource limits
@@ -232,7 +232,6 @@ EOF
 }
 
 variable master_liveness_probe {
-  type        = "map"
   description = "Redis Master Liveness Probe configuration"
 
   default = {
@@ -246,7 +245,6 @@ variable master_liveness_probe {
 }
 
 variable master_readiness_probe {
-  type        = "map"
   description = "Redis Master Readiness Probe configuration"
 
   default = {
@@ -260,12 +258,12 @@ variable master_readiness_probe {
 }
 
 variable master_pod_annotations {
-  type    = "map"
+  type    = map
   default = {}
 }
 
 variable master_security_context {
-  default {
+  default = {
     enabled     = true
     fs_group    = 1001
     run_as_user = 1001
@@ -303,7 +301,7 @@ variable master_service_type {
 }
 
 variable master_service_annotations {
-  type    = "map"
+  type    = map
   default = {}
 }
 
@@ -331,7 +329,7 @@ variable slave_args {
 }
 
 variable slave_resource_requests {
-  type = "map"
+  type = map
 
   description = <<EOF
 Redis Slave resource requests
@@ -346,7 +344,7 @@ EOF
 }
 
 variable slave_resource_limits {
-  type = "map"
+  type = map
 
   description = <<EOF
 Redis Slave resource limits
@@ -361,7 +359,7 @@ EOF
 }
 
 variable slave_service_annotations {
-  type = "map"
+  type = map
 
   default = {
     "prometheus.io/scrape" = "true"

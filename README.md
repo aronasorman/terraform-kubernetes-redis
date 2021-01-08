@@ -1,6 +1,8 @@
 # Redis Module
 
-Port of the Redis helm chart for Terraform
+This fork update the sl1pm4t's repository codes to support Terraform v0.14.x and remove requirement of custom kubernetes provider fork.
+
+Port of the Redis helm chart for Terraform (Fixed for Terraform v0.14.x) supporting redis master and slaves replicas
 
 ## Description
 
@@ -8,15 +10,11 @@ Open source, advanced key-value store. It is often referred to as a data structu
 
 (http://redis.io/)
 
-## Requirements
-
-This module requires an unofficial Kubernetes provider fork, available [here](https://github.com/sl1pm4t/terraform-provider-kubernetes). The fork provides support for additional resource types (`Deployment`, `StatefulSet`) that are currently not available in the official build.
-
 ## Example Usage
 
 ```hcl
 module redis {
-  source = "git::https://github.com/sl1pm4t/terraform-kubernetes-redis"
+  source = "git::https://github.com/sanarena/terraform-kubernetes-redis"
 
   kubernetes_namespace = "redis"
 
