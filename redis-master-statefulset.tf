@@ -160,6 +160,7 @@ resource kubernetes_stateful_set redis_master {
         #   name = "redis-data"
         #   empty_dir {}
         # }
+
       }
     }
 
@@ -182,9 +183,14 @@ resource kubernetes_stateful_set redis_master {
             storage = var.master_persistence_size
           }
         }
-
+        
         storage_class_name = var.master_persistence_storage_class
       }
     }
+
+    update_strategy {
+      type = "RollingUpdate"
+    }
+
   }
 }
