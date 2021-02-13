@@ -61,11 +61,11 @@ resource kubernetes_stateful_set redis_master {
         container {
           
           resources {
-            requests {
+            requests = {
               cpu    = merge(local.default_resource_requests, var.master_resource_requests).cpu
               memory = merge(local.default_resource_requests, var.master_resource_requests).memory
             }
-            limits {
+            limits = {
               cpu    = merge(local.default_resource_limits, var.master_resource_limits).cpu
               memory = merge(local.default_resource_limits, var.master_resource_limits).memory
             }

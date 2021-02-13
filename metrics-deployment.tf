@@ -39,11 +39,11 @@ resource kubernetes_deployment redis_metrics {
         container {
 
           resources {
-            requests {
+            requests = {
               cpu    = merge(local.default_resource_requests, var.metrics_resource_requests).cpu
               memory = merge(local.default_resource_requests, var.metrics_resource_requests).memory
             }
-            limits {
+            limits = {
               cpu    = merge(local.default_resource_limits, var.metrics_resource_limits).cpu
               memory = merge(local.default_resource_limits, var.metrics_resource_limits).memory
             }
