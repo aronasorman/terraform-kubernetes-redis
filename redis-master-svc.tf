@@ -1,6 +1,6 @@
 resource kubernetes_service redis_master {
   metadata {
-    name      = "${local.fullname}-master"
+    name      = "${local.fullname}-service"
     namespace = var.kubernetes_namespace
 
     labels = {
