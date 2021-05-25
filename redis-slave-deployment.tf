@@ -1,4 +1,7 @@
 resource kubernetes_deployment redis_slave {
+
+  count = var.cluster_enabled ? 1 : 0
+
   metadata {
     name      = "${local.fullname}-slave"
     namespace = var.kubernetes_namespace
